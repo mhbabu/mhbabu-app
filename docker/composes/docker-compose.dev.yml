@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  mhbabu-web-service:
+    image: ${CONTAINER_NAME}:latest
+    build:
+      context: ../../
+      dockerfile: ./docker/Dockerfile.production
+    env_file:
+      - ../../.env
+    ports:
+      - ${EXTERNAL_PORT}:${PORT}
+    networks:
+      mhbabu-web-service-network:
+networks:
+  mhbabu-web-service-network:
